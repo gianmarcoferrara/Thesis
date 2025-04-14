@@ -1,0 +1,32 @@
+
+
+\chapter{Heat Kernel 1 (in curved space - Percacci)}
+Consider the "heat equation" for the covariant Laplacian $\Delta$
+\begin{equation}
+    \frac{d\Psi}{dt}+ \Delta \Psi = 0.
+\end{equation}
+It describes the diffusion process on the manifold $\mathcal{M}$ with metric $g$, occurring in an external time $t$. The heat kernel $K_{\Delta}$ for the operator $\Delta$ is a function on $\mathcal{M} \times \mathcal{M} \times \mathbb{R}$ satisfying the heat equation with the initial condition
+\begin{equation}
+    K_{\Delta}(x,y;\, 0) = \delta(x,y).
+\end{equation}
+We recognize the following mass dimensions $[t]=-2$ and $[K_{\Delta}] = 3$. Given $\Psi$ at the initial time $t=0$, the solution of the heat equation is given at any later time by
+\begin{equation}
+    \Psi(x,t) = \int d^d y \sqrt{g(y)}K_{\Delta}(x,y\,;t) \Psi(y,\,0).
+\end{equation}
+The heat kernel can be written formally as 
+\begin{equation}
+    K_{\Delta}(.,.;t) = e^{-t\Delta}.
+\end{equation}
+Considering the spectral decomposition of the operator $\Delta$ through its eigenvalues $\lambda_n$ and eigenfunction $\phi_n$ we can write
+\begin{equation}
+    K_{\Delta}(x,y\,;t) = \sum_n \phi_n(x) \phi_n(y) e^{-T\lambda_n}.
+\end{equation}
+We shall be particularly interested in the trace of the heat kernel which is the dimensionless function
+\begin{equation}
+    \text{Tr}K_{\Delta}(t) = \int d^d x \sqrt{g} K_{\Delta}(x,x\,;t) = \sum_n e^{-t\lambda_n}
+\end{equation}
+In flat $d-$dimensional space the heat kernel can be easily calculated using Fourier analysis. In this case we denote the coordinates by 
+We are interested in the case of a general curved manifold. Since every manifold looks locally like Euclidean space, in the limit $t \xrightarrow{} 0$ the trace of the heat kernel must reduce to the form it has in the flat space
+
+
+

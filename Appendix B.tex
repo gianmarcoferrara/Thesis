@@ -1,0 +1,202 @@
+\chapter{Heat Kernel 2 (in curved space)}
+ The heat kernel function is defined as the solution of the following differential equation
+\begin{equation}\label{heat equation}
+        \frac{\partial\,\mathcal{G}(s;x,x')}{\partial s} + \mathcal{O}_x\mathcal{G}(s;x,x')=0
+\end{equation}
+with initial condition
+\begin{equation}
+    \mathcal{G}(0;x,x')=\delta^{(d)}(x,x')
+\end{equation}
+where $\delta^{(d)}(x,x')$ is the biscalar $\delta$-function that generalizes the usual flat space Dirac delta, and $x,x'$ are (coordinates of) points on an euclidean (i.e. riemannian) manifold of dimension $d$. To extend the results to the usual spacetime it is necessary to assume an analytic continuation of any Minkowski metric to one of euclidean signature.
+Restricting our attention to simple scalar fields, we can consider an operator $\mathcal{O}_x$ of Laplace-type
+\begin{equation}\label{Laplace-type operator}
+    \mathcal{O} = - g^{\mu\nu}\nabla_\mu \partial_\nu + E
+\end{equation}
+in which $E=E(x)$ is a local endomorphism acting multiplicatively on the scalar field's bundle. If we solve the diffusion equation (\ref{heat equation}) implicitly
+\begin{equation}
+\mathcal{G}(s;x,x')= \bra{x'}e^{-s\mathcal{O}}\ket{x},
+\end{equation}
+we can see that heat kernel function is related to the Green function $G$, which is formally defined by
+\begin{equation}
+    \mathcal{O}_x G(x,x')= \delta^{(d)}(x,x').
+\end{equation}
+Thus,
+\begin{equation}
+    G(x,x')= \int_0^\infty ds\,\mathcal{G}(s;x,x').
+\end{equation}
+The heat kernel function has an asymptotic expansion for $s \xrightarrow{} 0^+$. Following DeWitt \cite{DeWitt:1964mxt}, it has the form
+\begin{equation}\label{Seely-DeWitt expansion}
+    \mathcal{G}(x,x') = \frac{\Delta(x,x')^{1/2}}{(4 \pi s)^{d/2}} e ^{-\frac{\sigma(x,x')}{2s}}\sum_{k \geq 0} a_k (x,x') s^k.
+\end{equation}
+In Eq.(\ref{Seely-DeWitt expansion}) several bitensors are introduced, the most fundamental is $\sigma(x,x')$ called \emph{geodetic interval} or \emph{Synge-De Witt's world function}. It is defined as half of the square of the geodesic distance between $x$ and $x'$. The bitensor $\Delta(x,x')$ is known as \emph{van Vleck determinant} and is related to the world function and the determinant metric by
+\begin{equation}
+    \Delta(x,x') = \frac{1}{g(x)^{1/2}\,g(x')^{1/2}}\;\text{det}\,\left(-\frac{\partial^2}{\partial x^\alpha \partial x^{'\beta}}\sigma(x,x')\right).
+\end{equation}
+Together, $\sigma$ and $\Delta$ ensure that the leading term of the Seely-De Witt parametrization covariantly generalizes the solution of the heat equation in flat space, where $\mathcal{O} \sim -\partial^2.$ Finally, the bitensors $a_k(x,x')$ are the coefficients of the asymptotic expansion and contain the geometrical information of the operator $\mathcal{O}$. The ultraviolet properties are local in renormalizable theories and for the case of the heat kernel locality correspond to $x \sim x'$ and it is captured by the coincidence limit in which $x' \xrightarrow{} x$. Given any bitensor $B(x,x')$, its coincidence limit is defined 
+\begin{equation}
+    [B] \coloneqq \lim_{x' \xrightarrow{} x} B(x,x').
+\end{equation}
+One important note is that covariant derivatives do not generally commute with the coincidence limit, so 
+\begin{equation}
+    \nabla  [B] \neq [\nabla B].
+\end{equation}
+The coincidence limits of the bitensors $\sigma(x,x')$ and $\Delta(x,x')$ and their derivatives can be obtained by repeated differentiation of the \emph{crucial relations}, obtained in \cite{DeWitt:1964mxt} by geometrical observations for geodesics, they read
+\begin{equation}\label{crucial relations}
+    \sigma_\mu \sigma^\mu = 2 \sigma,\;\;\;\;\;\; \Delta^{1/2} \sigma_\mu^{\;\,\mu} + 2 \sigma ^\mu \nabla_\mu \Delta^{1/2} = d \Delta^{1/2},
+\end{equation}
+in which we suppressed the bitensor coordinates and we introduced the notation in which subscripts of $\sigma$ indicate covariant derivative, i.e. $\sigma_{\mu_{1}\dots\mu_{n}} \coloneqq \nabla_{\mu_{n}}\dots\nabla_{\mu_{1}} \sigma$. We can start with the first of Eq.(\ref{crucial relations}) obtaining
+\begin{align}
+\sigma_{\nu} &= \sigma_{\mu \nu} \sigma^{\mu}\label{diff sigma 0}&&\\
+\sigma_{\nu\rho} &= \sigma_{\mu\nu\rho}\sigma^\mu + \sigma_{\mu\nu} \sigma^{\mu}_{\;\,\rho}\label{diff sigma 1}&&\\
+\sigma_{\nu\rho\sigma} &= \sigma_{\mu\nu\rho\sigma} \sigma^\mu + \sigma_{\mu\nu\rho} \sigma^\mu_{\,\;\sigma} + \sigma_{\mu\nu\sigma} \sigma^\mu_{\,\;\rho} +\sigma_{\mu\nu} \sigma^\mu_{\,\;\rho\sigma}\label{diff sigma 2}&&\\
+\sigma_{\nu\rho\sigma\tau} &= \sigma_{\mu\nu\rho\sigma\tau} \sigma^\mu + \sigma_{\mu\nu\rho\sigma} \sigma^\mu_{\,\;\tau} + \sigma_{\mu\nu\rho\tau}\sigma^\mu_{\,\;\sigma} + \sigma_{\mu\nu\rho}\sigma^\mu_{\,\;\sigma\tau} + \sigma_{\mu\nu\sigma\tau}\sigma^\mu_{\,\;\rho}\label{diff sigma 3} \\
+&\quad + \sigma_{\mu\nu\sigma}\sigma^\mu_{\,\;\rho\tau} +\sigma_{\mu\nu\tau} \sigma^\mu_{\,\;\rho\sigma} +\sigma_{\mu\nu}\sigma^\mu_{\,\;\rho\sigma\tau}\notag&&\\
+&\;\;\vdots \notag
+\end{align}
+Now we can compute coincidence limits considering that we already know
+\begin{equation}\label{c.l.sigma 1}
+    [\sigma] \coloneqq \lim_{x' \xrightarrow{} x} \sigma(x,x') = 0.
+\end{equation}
+Using (\ref{c.l.sigma 1}) and the first of (\ref{crucial relations}) we get also
+\begin{equation}\label{c.l.sigma 2}
+    [\sigma_\mu] = 0.
+\end{equation}
+We notice that using (\ref{c.l.sigma 2}), the coincidence limit of (\ref{diff sigma 0}) is a trivial identity, while for (\ref{diff sigma 1}) we have
+\begin{equation}\label{c.l.sigma 3}
+    [\sigma_{\mu\nu}] = g_{\mu\nu}.
+\end{equation}
+To compute coincidence limits for (\ref{diff sigma 2}) and (\ref{diff sigma 3}), we need to use some commutation laws for covariant differentiation together with (\ref{c.l.sigma 1}),(\ref{c.l.sigma 2}) and (\ref{c.l.sigma 3}). We have
+\begin{equation}
+    [\sigma_{\nu\rho\sigma}]= \lim_{x \xrightarrow{} x'} (\sigma_{\nu\rho\sigma} + \sigma_{\rho\nu\sigma} + \sigma_{\sigma\nu\rho})
+\end{equation}
+and we now subtract $3[\sigma_{\nu\rho\sigma}]$ and use the Ricci identity
+\begin{equation}
+    \begin{split}
+        -2[\sigma_{\nu\rho\sigma}] &= [\sigma_{\rho\nu\sigma}] - [\sigma_{\nu\rho\sigma}] + [\sigma_{\sigma\nu\rho}] - [\sigma_{\nu\rho\sigma}]\\
+        &= ([\sigma_{\rho\nu\sigma}] - [\sigma_{\nu\rho\sigma}]) + ([\sigma_{\sigma\nu\rho}] -[\sigma_{\nu\sigma\rho}]) + ([\sigma_{\nu\sigma\rho}] - [\sigma_{\nu\rho\sigma}])\\
+        &= [\nabla_{\sigma}[\nabla_\nu,\nabla_\rho]\sigma] + [\nabla_\rho[\nabla_\nu,\nabla_\sigma]\sigma] + [R_{\rho\sigma\nu}^{\;\;\;\;\;\mu} \sigma_\mu] = 0,
+    \end{split}
+\end{equation}
+where in the last line the first two terms disappear because we assume a torsion-free theory, and the last term because of (\ref{c.l.sigma 2}), so 
+\begin{equation}\label{c.l.sigma 4}
+    [\sigma_{\nu\rho\sigma}] = 0.
+\end{equation}
+A consequence of considering a torsion-free theory is reflected by the symmetry for the first two indexes closest to $\sigma$, namely $[\sigma_{\mu\nu\dots} ] = [\sigma_{\nu\mu\dots}]$.
+For the four-derivative term, using (\ref{c.l.sigma 4}), we have
+\begin{equation}
+    [\sigma_{\nu\rho\sigma\tau}] = [\sigma_{\tau\nu\rho\sigma}] + [\sigma_{\sigma\nu\rho\tau}] + [\sigma_{\rho\nu\sigma\tau}] + [\sigma_{\nu\rho\sigma\tau}].
+\end{equation}
+Now we can subtract $4[\sigma_{\nu\rho\sigma\tau}]$ and use the relation
+\begin{equation}
+    [\nabla_\mu,\nabla_\nu]T_{\rho\sigma} = R_{\mu\nu\rho}^{\;\;\;\;\lambda}T_{\lambda\sigma} + R_{\mu\nu\sigma}^{\;\;\;\;\lambda}T_{\rho\lambda},
+\end{equation}
+which, in the case of $T_{\mu\nu} = \sigma_{\mu\nu}$, gives simply
+\begin{equation}
+    [\nabla_\mu,\nabla_\mu] \sigma_{\rho\sigma}=0.
+\end{equation}
+We get
+\begin{equation}
+    \begin{split}
+        -3[\sigma_{\nu\rho\sigma\tau}] &= [\sigma_{\tau\nu\rho\sigma}] - [\sigma_{\nu\rho\sigma\tau}] + [\sigma_{\sigma\nu\rho\tau}] - [\sigma_{\nu\rho\sigma\tau}] + [\sigma_{\rho\nu\sigma\tau}] - [\sigma_{\nu\rho\sigma\tau}]\\
+        &= [\sigma_{\tau\nu\rho\sigma}] - [\sigma_{\nu\rho\sigma\tau}] + [\sigma_{\nu\sigma\rho\tau}] - [\sigma_{\nu\rho\sigma\tau}]\\
+        &= ([\sigma_{\tau\nu\rho\sigma}] - [\sigma_{\nu\rho\tau\sigma}]) + ([\sigma_{\nu\rho\tau\sigma}] +[\sigma_{\nu\rho\sigma\tau}]) + ([\sigma_{\nu\sigma\rho\tau}] - [\sigma_{\nu\rho\sigma\tau}])\\
+        &= [\nabla_\sigma(R_{\rho\tau\nu}^{\;\;\;\;\mu}\sigma_{\mu})] + [\nabla_\tau(R_{\rho\sigma\nu}^{\;\;\;\;\mu}\sigma_{\mu})] +[[\nabla_\sigma.\nabla_\tau]\sigma_{\rho\nu}]\\
+        &= R_{\rho\tau\nu\sigma} + R_{\rho\sigma\nu\tau}.
+    \end{split}
+\end{equation}
+Using symmetries of the Riemann tensor we get
+\begin{equation}\label{c.l.sigma 5}
+    [\sigma_{\nu\rho\sigma\tau}] = \frac{1}{3}(R_{\nu\sigma\tau\rho} + R_{\nu\tau\sigma\rho}).
+\end{equation}
+Other relations can be obtained taking contractions in (\ref{diff sigma 3}) and performing further differantiation, as
+\begin{equation}
+    [\sigma_{\nu\,\;\sigma\,\;\rho}^{\,\;\nu\,\;\sigma}] = \nabla_\rho R
+\end{equation}
+and
+\begin{equation}
+    [\sigma_{\mu\,\;\nu\,\;\sigma}^{\,\;\mu\,\;\nu\,\;\sigma}]=\frac{8}{5}\nabla^\mu\nabla_\mu R + \frac{4}{15} R_{\mu\nu} R^{\mu\nu} - \frac{4}{15}R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma}
+\end{equation}
+We can now analyze $\Delta$ in the same fashion, differentiating the second of (\ref{crucial relations}), we get
+\begin{align}
+    d\nabla_\nu \Delta^{1/2} &= \nabla_\nu \Delta^{1/2} \sigma_\mu^{\;\mu} + \Delta^{1/2} \sigma_{\mu\;\nu}^{\;\mu} + 2 \sigma^\mu_{\;\nu} \nabla_\mu \Delta^{1/2} + 2\sigma^\mu \nabla_\nu \nabla_\mu \Delta^{1/2}\label{diff delta 0}\\
+    d\nabla_\rho \nabla_\nu \Delta^{1/2} &= \nabla_\rho\nabla_\nu \Delta^{1/2} \sigma_\mu^{\;\mu} + \nabla_\nu\Delta^{1/2} \sigma_{\mu\;\rho}^{\;\mu} + \nabla_\rho \Delta^{1/2} \sigma_{\mu\;\nu}^{\;\mu} +\Delta^{1/2} \sigma_{\mu\;\nu\rho}^{\;\mu}\label{diff delta 1}\\
+    &+ 2 \sigma^\mu_{\;\nu\rho} \nabla_\mu \Delta^{1/2} +2 \sigma^\mu_{\;\nu} \nabla_\rho \nabla_\mu \Delta^{1/2} + 2\sigma^\mu_{\;\rho} \nabla_\nu \nabla_\mu \Delta^{1/2} + 2\sigma^\mu \nabla_\rho\nabla_\nu \nabla_\mu \Delta^{1/2}. \notag
+\end{align}
+Before computing coincidence limits we notice that by definition we have
+\begin{equation}\label{c.l.delta 0}
+    [\Delta] = 1.
+\end{equation}
+In Eq.(\ref{diff delta 0}), using coincidence limits of $\sigma$, we get trivially
+\begin{equation}\label{c.l.delta 1}
+    [\nabla_\nu \Delta^{1/2} ] = 0.
+\end{equation}
+In Eq.(\ref{diff delta 1}), in particularly using (\ref{c.l.sigma 5}) we get
+\begin{equation}\label{c.l.delta 2}
+    [\nabla_\rho \nabla_\nu \Delta^{1/2}] = \frac{1}{6} R_{\rho\nu},
+\end{equation}
+and similarly
+\begin{equation}
+    [\nabla_\rho \nabla_\nu \Delta^{-1/2}] = -\frac{1}{6} R_{\rho\nu}.
+\end{equation}
+We can obtain an other useful relation taking the contraction and then differentiating Eq.(\ref{diff delta 1}), namely
+\begin{equation}
+\begin{split}
+    d \nabla_\rho \nabla^\nu \nabla_\nu \Delta^{1/2} &= \nabla_\rho \nabla^\nu \nabla_\nu\Delta^{1/2} \sigma_\mu^{\;\,\mu} +\nabla^\nu \nabla_\nu \Delta^{1/2}\sigma_{\mu\;\,\rho}^{\;\,\mu} + \nabla_\rho \nabla_\nu \Delta^{1/2} \sigma_\mu^{\;\,\mu\nu} + \nabla_\nu \Delta^{1/2} \sigma^{\;\,\mu\nu}_{\mu\;\;\,\,\rho}\\
+    &+ \nabla_\rho \nabla^\nu \Delta^{1/2} \sigma^{\,\;\mu}_{\mu\;\,\nu} + \nabla^\nu \Delta^{1/2}\sigma_{\mu\,\;\nu\rho}^{\,\;\mu} + \nabla_\rho\Delta^{1/2}\sigma_{\mu\,\;\nu}^{\,\;\mu\,\;\nu}+\Delta^{1/2}\sigma_{\mu\,\;\nu\;\,\rho}^{\,\;\mu\,\;\nu}\\
+    &+ 2\sigma_{\;\,\nu\,\;\rho}^{\mu\;\,\nu} \nabla_\mu \Delta^{1/2} +2\sigma^{\mu\;\,\nu}_{\;\,\nu}\nabla_\rho \nabla_\mu \Delta^{1/2} + 2\sigma^\mu_{\;\,\nu\rho}\nabla^\nu \nabla_\mu \Delta^{1/2}\\
+    &+ 2 \sigma^\mu_{\;\,\nu}\nabla_\rho \nabla^\nu \nabla_\mu \Delta^{1/2} + 2\sigma^{\mu\nu}_{\;\,\;\,\rho} \nabla_\nu \nabla_\mu \Delta^{1/2} +2\sigma^{\mu\nu} \nabla_\rho \nabla_\nu \nabla_\mu \Delta^{1/2}\\
+    &+ 2 \sigma^{\mu}_{\;\,\rho} \nabla^\nu \nabla_\nu \nabla_\mu \Delta^{1/2} + 2 \sigma^\mu \nabla_\rho \nabla^\nu \nabla_\nu \nabla_\mu \Delta^{1/2},
+\end{split}
+\end{equation}
+taking the coincidence limit we get
+\begin{equation}\label{contracted 3 delta}
+    [\nabla_\rho \nabla^\nu \nabla_\nu \Delta^{1/2}]= -\frac{1}{6}([\sigma_{\mu\,\;\nu\,\;\rho}^{\;\,\mu\,\;\nu}] + [R_\rho^{\,\;\mu}\nabla_\mu \Delta^{1/2}]) = -\frac{1}{6} [\sigma_{\mu\,\;\nu\,\;\rho}^{\;\,\mu\,\;\nu}] = -\frac{1}{6} \nabla_\rho R.
+\end{equation}
+Another differentiation gives
+\begin{equation}
+    [\nabla^\nu\nabla_\nu\nabla^\mu\nabla_\mu\Delta^{1/2}] = -\frac{1}{5}\nabla^\mu\nabla_\mu R + \frac{1}{36}R^2- \frac{1}{30}R_{\mu\nu}R^{\mu\nu} + \frac{1}{30}R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma}
+\end{equation}
+As we did for $\sigma$ and $\Delta$, we can compute coincidence limits for the coefficients $a_k(x,x')$ differentiating and inductively using 
+\begin{equation}\label{crucial relation for coefficients}
+    ka_k + \sigma^\mu \nabla_\mu a_k + \Delta^{-1/2} \mathcal{O}(\Delta^{1/2} a_{k-1})=0
+\end{equation}
+with the boundary condition $\sigma^\mu \nabla_\mu a_0$. The recursive equation (\ref{crucial relation for coefficients}) is obtained by (\ref{heat equation}), (\ref{Seely-DeWitt expansion}), together with (\ref{crucial relations}). In the case of a simple scalar field the first coefficient is trivially $a_0(x,x')=1$ because the Seely-De Witt expansion solves the diffusion equation in flat space. For an operator as (\ref{Laplace-type operator}) and for $k=1$ we have
+\begin{equation}\label{c.l.coefficient 1}
+    [a_1] = [\Delta^{-1/2}\nabla^\mu \partial_\mu \Delta^{1/2} - E] = -\frac{R}{6} -E.
+\end{equation}
+Not without reason we can continue differentiating (\ref{crucial relation for coefficients}) in the case $k=1$ to also get the coincidence limits for the first and the second derivative of the coefficient $a_1$. The resulting equation for the first derivative is
+\begin{equation}
+    2[\nabla_\nu a_1] = [\Delta^{-1/2} \nabla_\nu\nabla^\mu\nabla_\mu \Delta^{1/2}]-\nabla_\nu E,
+\end{equation}
+substituting the result (\ref{contracted 3 delta}), the equation takes the form
+\begin{equation}
+    [\nabla_\nu a_1] =-\frac{1}{12}\nabla_\nu R - \nabla_\nu E.
+\end{equation}
+The equation for the second derivative is 
+\begin{equation}
+    2[\nabla^\nu\nabla_\nu a_1] = [\nabla^\nu\nabla_\nu \Delta^{-1/2}\cdot\nabla^\mu\nabla_\mu \Delta^{1/2}] + [\Delta^{-1/2}\nabla^\nu\nabla_\nu\nabla^\mu\nabla_\mu \Delta^{1/2}] - \nabla^\nu\nabla_\nu E,
+\end{equation}
+using the previous results for $\Delta$, we get
+\begin{equation}\label{seconde derivative c.l. a_1}
+    [\nabla^\nu\nabla_\nu a_1] = -\frac{1}{10}\nabla^\mu \nabla_\mu R -\frac{1}{60} R_{\mu\nu}R^{\mu\nu}  + \frac{1}{60} R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma} +\frac{1}{2}\nabla^\mu \nabla_\mu E.
+\end{equation}
+We will conclude with the computation of the coincidence limit for the second coefficient, in the case $k=2$, (\ref{crucial relation for coefficients}) becomes
+\begin{equation}
+    2a_2 + \sigma^\mu \nabla_\mu a_2 + \Delta^{-1/2}(-g^{\mu\nu}\nabla_\mu\partial_\nu + E)(\Delta^{1/2}a_1),
+\end{equation}
+and the coincidence limit is
+\begin{equation}
+    \begin{split}
+        2[a_2] &=[\Delta^{-1/2}g^{\mu\nu} \nabla_\mu \partial_\nu (\Delta^{1/2}a_1) - \Delta^{-1/2}Ea_1]\\
+        &= [g^{\mu\nu}(\nabla_\mu \partial_\nu\Delta^{1/2} \cdot a_1 + \partial_\nu \Delta^{1/2}\nabla_\mu a_1 + \nabla_\mu \Delta^{1/2} \partial_\nu a_1 + \Delta^{1/2}\nabla_\mu \partial_\nu a_1) + Ea_1]\\
+        &=[\nabla^\mu \partial_\mu \Delta^{1/2} \cdot a_1+\nabla^\mu \partial_\mu a_1 + Ea_1],
+    \end{split}
+\end{equation}
+which using (\ref{c.l.coefficient 1}), (\ref{seconde derivative c.l. a_1}) and (\ref{c.l.delta 2}), becomes
+\begin{equation}
+    [a_2] = -\frac{1}{72} R^2 + \frac{1}{20} \nabla^\mu \nabla_\mu R + \frac{1}{120} R_{\mu\nu}R^{\mu\nu} - \frac{1}{120}R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma} + \frac{1}{2}E^2 - \frac{1}{2}\nabla^\mu\nabla_\mu E,
+\end{equation}
+even if it should be something like, ERROR
+\begin{equation}
+    [a_2] = \frac{1}{72}R^2 + \frac{1}{6}RE + \frac{1}{2} E^2 - \frac{1}{6}\nabla^2
+\left(E-\frac{1}{6}R\right)+ \frac{1}{180}(R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma}-R_{\mu\nu} R^{\mu\nu})\end{equation}
